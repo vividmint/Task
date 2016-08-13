@@ -32,6 +32,9 @@ body {
     border-radius: 5px;
     position: relative;
 }
+.part img{
+  max-width: 100%;
+}
 .title {
     color: #666666;
 }
@@ -53,8 +56,7 @@ body {
     text-align: center;
 }
 .pic img {
-    height: 120px;
-    width: 270px;
+  width: 100%;
 }
 .sheet {
     width: 100%;
