@@ -1,6 +1,29 @@
 body {
     background-color: #DDDDDD;
+}
+.container {
     padding: 0px 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #444444;
+    padding-right: 10px;
+    height: 50px;
+    padding-left: 10px;
+}
+.logo img {
+    height: 50px;
+}
+.header .active a {
+    color: #95a5a6;
+}
+.header li {
+    display: inline;
+}
+.header li a {
+    text-decoration: none;
+    color: white;
 }
 .part {
     background-color: white;
@@ -14,6 +37,7 @@ body {
 }
 .content {
     line-height: 30px;
+    text-indent:2em;
 }
 .list {
     list-style: none;
@@ -64,61 +88,76 @@ blockquote {
     color: black;
     padding-left: 10px;
 }
-.formItem {
+.items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*align-items: center;*/
+}
+.item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+.item-left {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    /*flex-direction: column;*/
+}
+.item-left label {
+    line-height: 30px;
+}
+.item-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+.item-right input[type="text"], .item-right input[type="password"] {
+    width: 25%;
+    min-width: 150px;
+    height: 30px;
+}
+.item-right select {
+    width: 25%;
+    min-width: 150px;
+    height: 35px;
+}
+.item-right div {
+    width: 25%;
+    min-width: 150px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.explain {
+    margin-top: 10px;
+}
+.item-right div.hobby {
+    width: 80%;
+}
+.item-right textarea {
+    width: 80%;
+    height: 80px;
+}
+.submit-button {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding-bottom: 20px;
 }
-.information {
-    /*left: 50%;
-    right: 50%;*/
+.submit {
+    width: 80%;
+    height: 40px;
+    background-color: #2980b9;
+    border-radius: 6px;
+    border-style: none;
+    color: white;
+    font-size: 14px;
 }
-.information label {
-    display: inline-block;
-    text-align: right;
-    width: 300px;
-    padding: 10px;
-}
-.description {
-    display: inline-block;
-    text-align: left;
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*/
-}
-
-/*.email{
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-}
-.password{
-  display: flex;
-  justify-content: center;
+footer {
+    background-color: #444444;
+    height: 50px;
+    text-align: center;
     padding: 5px;
+    color: white;
 }
-.sex{
-  display: flex;
-  justify-content: center;
-    padding: 10px;
-}
-.city{
-  display: flex;
-  justify-content: center;
-    padding: 10px;
-}
-.hobby{
-  display: flex;
-  justify-content: center;
-    padding: 10px;
-}
-.messages{
-  display: flex;
-  justify-content: center;
-    padding: 10px;
-}
-.post{
-  display: flex;
-  justify-content: center;
-    padding: 10px;
-}*/
