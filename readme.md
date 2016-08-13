@@ -1,3 +1,3 @@
-# 百度IFE task
-1.[task 1](http://localhost:8080/01/)
-2.[task 2](http://localhost:8080/02/)
+# [百度IFE task](http://ife.baidu.com/task/all)
+1.[task 1](https://vividmint.github.io/Task/01)
+2.[task 2](https://vividmint.github.io/Task/02)
