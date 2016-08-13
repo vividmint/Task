@@ -1,0 +1,124 @@
+body {
+    background-color: #DDDDDD;
+    padding: 0px 20px;
+}
+.part {
+    background-color: white;
+    margin: 20px 0px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    position: relative;
+}
+.title {
+    color: #666666;
+}
+.content {
+    line-height: 30px;
+}
+.list {
+    list-style: none;
+    line-height: 25px;
+}
+.pic {
+    border: 1px solid #DDDDDD;
+    padding: 0px 10px 10px 10px;
+    display: inline-block;
+    margin: 10px 0 30px 70px;
+}
+.picName {
+    text-align: center;
+}
+.pic img {
+    height: 120px;
+    width: 270px;
+}
+.sheet {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid #DDDDDD;
+}
+.sheet th, .sheet td {
+    padding: 6px;
+}
+.sheet th {
+    background-color: #444444;
+    color: white;
+}
+.sheet tfoot {
+    background-color: #DDDDDD;
+    font-weight: bolder;
+}
+blockquote {
+    color: #999;
+    border-left: 2px solid #999;
+    height: 40px;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+}
+.left {
+    color: black;
+    padding-left: 10px;
+}
+.formItem {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.information {
+    /*left: 50%;
+    right: 50%;*/
+}
+.information label {
+    display: inline-block;
+    text-align: right;
+    width: 300px;
+    padding: 10px;
+}
+.description {
+    display: inline-block;
+    text-align: left;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+
+/*.email{
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.password{
+  display: flex;
+  justify-content: center;
+    padding: 5px;
+}
+.sex{
+  display: flex;
+  justify-content: center;
+    padding: 10px;
+}
+.city{
+  display: flex;
+  justify-content: center;
+    padding: 10px;
+}
+.hobby{
+  display: flex;
+  justify-content: center;
+    padding: 10px;
+}
+.messages{
+  display: flex;
+  justify-content: center;
+    padding: 10px;
+}
+.post{
+  display: flex;
+  justify-content: center;
+    padding: 10px;
+}*/
