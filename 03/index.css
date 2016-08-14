@@ -27,7 +27,7 @@
 .middle {
     border: 1px solid #999;
     width: 100%;
-    margin: 20px;
+    margin: 0 20px 20px 20px;
     background-color: white;
 }
 .right {
