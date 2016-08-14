@@ -1,0 +1,47 @@
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    margin: 20px;
+    border: 1px solid #999;
+}
+.left {
+    min-width: 200px;
+    height: 120px;
+    background-color: white;
+    display: flex;
+    border: 1px solid #999;
+}
+.name {
+    padding: 20px 20px 20px 0;
+    font-size: 14px;
+}
+.logo {
+    padding: 20px;
+}
+.logo img {
+    height: 80px;
+    width: 80px;
+}
+.middle {
+    border: 1px solid #999;
+    width: 100%;
+    margin: 20px;
+    background-color: white;
+}
+.right {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #999;
+}
+.person {
+    justify-content: center;
+    padding: 20px;
+}
+.person img {
+    height: 80px;
+    width: 80px;
+}
