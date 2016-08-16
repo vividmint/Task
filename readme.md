@@ -4,3 +4,4 @@
 3. [task 3](https://vividmint.github.io/Task/03)
 4. [task 4](https://vividmint.github.io/Task/04)
 5. [task 5](https://vividmint.github.io/Task/05)
+6. [task 6](https://vividmint.github.io/Task/06)
