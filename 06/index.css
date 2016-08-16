@@ -83,12 +83,16 @@ header {
     border: 2px solid #FFC0CB;
 }
 .a-right-title {
-    font-size: 24px;
-    line-height: 40px;
+    font-size: 22px;
+    line-height: 20px;
     font-family: Microsoft YaHei;
     color: #666666;
-    padding-top: 5px;
+    padding-top: 14px;
     text-decoration: underline;
+}
+.a-right-title::first-letter {
+    font-size: 28px;
+    font-weight: bolder;
 }
 .a-right-detail {
     font-size: 12px;
@@ -97,10 +101,11 @@ header {
     color: #676767;
     font-style: italic;
     text-transform: lowercase;
+    margin-top: 8px;
 }
 .a-right-number {
     font-size: 116px;
-    color: #87CEFA;
+    color: #34495e;
     font-style: italic;
     font-family: SimHei;
 }
@@ -150,6 +155,8 @@ header {
     font-size: 12px;
     margin-top: 6px;
     align-items: stretch;
+    opacity: 0.7;
+    text-overflow: ellipsis;
 }
 .when {
     font-size: 16px;
@@ -173,16 +180,16 @@ header {
 .how-detail {
     font-size: 12px;
     margin-top: 6px;
+    opacity: 0.7;
 }
 .how-percent {
     font-size: 12px;
     display: flex;
     flex-direction: column;
 }
-.how-summary{
-  display: flex;
-  flex-direction: row;
-
+.how-summary {
+    display: flex;
+    flex-direction: row;
 }
 .percent-name {
     color: #676767;
@@ -190,4 +197,179 @@ header {
 .percent {
     font-style: italic;
     color: #87CEFA;
+}
+.c {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.the {
+    font-size: 72px;
+    font-family: SimHei;
+    font-style: italic;
+    font-weight: bolder;
+    color: #87CEFA;
+    float: left;
+    margin: 0 20px 0px 0;
+}
+.d {
+    display: flex;
+    flex-direction: column;
+    width: 408px;
+    margin-right: 26px;
+}
+.d-upper-title {
+    font-size: 42px;
+    line-height: 55px;
+    font-family: SimHei;
+    color: #34495e;
+}
+.d-upper-chinese {
+    border-bottom: 2px solid #34495e;
+}
+.chinese {
+    font-size: 33px;
+    font-family: SimHei;
+    color: #34495e;
+    margin-bottom: 14px;
+}
+.d-lower {
+    margin: 10px 0 0 0;
+    padding: 10px 0 5px 0;
+}
+.d-lower-qian {
+    font-size: 70px;
+    font-family: SimHei;
+    color: #87CEFA;
+    float: left;
+    margin: 25px 8px 25px 0px;
+}
+.d-lower-detail {
+    font-size: 12px;
+    font-family: Microsoft YaHei;
+    color: #676767;
+    line-height: 18px;
+    text-overflow: ellipsis;
+}
+.d-lower-pic img {
+    height: 250px;
+    width: 150px;
+    float: right;
+    margin: 20px 0 15px 15px;
+}
+.e {
+    display: flex;
+    flex-direction: column;
+    width: 458px;
+    background-color: #F8F8FF;
+}
+.e-upper img {
+    height: 275px;
+    width: 458px;
+}
+.e-lower {
+    display: flex;
+    flex-direction: column;
+    height: 318px;
+    color: #34495e;
+}
+.f {
+    display: flex;
+    flex-direction: column;
+}
+.f-uppers {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6px;
+}
+.f-upper {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px 10px 30px;
+}
+.f-upper-name {
+    font-size: 18px;
+    font-family: Microsoft YaHei;
+    line-height: 35px;
+}
+.triangles {
+    display: flex;
+    flex-direction: row;
+}
+.triangle {
+    font: 0/0 "微软雅黑";
+    border: 8px solid;
+    border-color: #F8F8FF #F8F8FF #000 #F8F8FF;
+    float: left;
+    position: absolute;
+    margin: 8px 4px 0 0px;
+}
+.f-upper-explain {
+    font-size: 12px;
+    font-family: Microsoft YaHei;
+    display: flex;
+    font-style: italic;
+    margin: 10px 15px 10px 5px;
+    /*flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: flex-end;*/
+}
+.f-lower {
+    display: flex;
+    flex-direction: row;
+}
+.f-lower-left {
+    width: 275px;
+    display: flex;
+    background-color: #FFC0CB;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    font-family: SimHei;
+    color: white;
+    padding: 0 12px 0 15px;
+}
+.g-left {
+    display: flex;
+    align-items: center;
+    font-size: 110px;
+    font-family: Microsoft YaHei;
+    /*margin-left: 15px;*/
+}
+.g-middle {
+    border-right: 2px solid white;
+    height: 110px;
+    margin: 0 10px 0 8px;
+}
+.f-lower-right {
+    display: flex;
+    width: 184px;
+}
+.g-right-upper {
+    font-size: 21px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+.g-right-lower {
+    font-size: 12px;
+    line-height: 15px;
+}
+.f-lower-right {
+    height: 160px;
+    width: 260px;
+    font-family: SimHei;
+    display: flex;
+    align-items: center;
+    background-color:  white;
+}
+.h-sign {
+    font-size: 72px;
+    font-style: italic;
+    float: left;
+    height: 50px;
+    width: 50px;
+}
+.h-detail {
+    font-size: 14px;
+    margin: 0 0px 0 0px;
 }
