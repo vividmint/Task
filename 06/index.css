@@ -39,7 +39,7 @@
         justify-content:
     }
     .a-left {
-        padding: 30px 0 30px 0px;
+        padding: 30px 0 0px 0px;
         height: 361px;
         width: 641px;
     }
@@ -142,6 +142,7 @@
         width: 641px;
         line-height: 16px;
         align-items: stretch;
+        margin-top: -20px;
     }
     .b-name {
         font-family: Microsoft YaHei;
@@ -189,13 +190,18 @@
         font-size: 12px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        margin: 10px 0 10px 0;
     }
     .how-summary {
         display: flex;
-        flex-direction: row;
+        line-height: 24px;
     }
     .percent-name {
         color: #676767;
+    }
+    .percent-name::first-letter {
+        text-transform: uppercase;
     }
     .percent {
         font-style: italic;
@@ -269,17 +275,43 @@
     .e-upper {
         padding-bottom: 15px;
         background-color: white;
+        position: relative;
     }
     .e-upper img {
         height: 275px;
         width: 458px;
+    }
+    .canvas {
+        height: 50px;
+        width: 423px;
+        /*opacity: 0.5;*/
+        background-color: rgba(25, 25, 25, 0.5);
+        position: absolute;
+        top: 225px;
+        padding-left: 35px;
+        font-family: Microsoft YaHei;
+    }
+    .e-upper-detail {
+        color: white;
+        line-height: 50px;
+        opacity: 1;
+    }
+    .canvas-left {
+        font-size: 26px;
+        color: white;
+        border-left: 2px solid #FFC0CB;
+        padding-left: 10px;
+    }
+    .canvas-right {
+        font-size: 14px;
+        font-style: italic;
+        color: #87CEFA;
     }
     .e-lower {
         display: flex;
         flex-direction: column;
         height: 306px;
         color: #34495e;
-
     }
     .f {
         display: flex;
@@ -288,12 +320,12 @@
     .f-uppers {
         display: flex;
         flex-direction: column;
-        margin-bottom: 6px;
+        margin: 5px 0 24px 0;
     }
     .f-upper {
         display: flex;
         flex-direction: row;
-        padding: 10px 10px 0px 30px;
+        padding: 15px 10px 0px 30px;
     }
     .f-upper-name {
         font-size: 18px;
@@ -303,14 +335,6 @@
     .triangles {
         display: flex;
         flex-direction: row;
-    }
-    .triangle {
-        font: 0/0 "微软雅黑";
-        border: 8px solid;
-        border-color: #F8F8FF #F8F8FF #000 #F8F8FF;
-        float: left;
-        position: absolute;
-        margin: 8px 4px 0 0px;
     }
     .f-upper-explain {
         font-size: 12px;
@@ -322,30 +346,28 @@
     .f-lower {
         display: flex;
         flex-direction: row;
-
     }
     .f-lower-left {
-        width: 275px;
+        width: 380px;
         display: flex;
         background-color: #FFC0CB;
         justify-content: center;
         align-items: center;
-        height: 160px;
+        height: 164px;
         font-family: SimHei;
         color: white;
-        padding: 0 12px 0 15px;
+        padding: 0 5px 0 5px;
     }
     .g-left {
         display: flex;
         align-items: center;
         font-size: 110px;
         font-family: Microsoft YaHei;
-        /*margin-left: 15px;*/
     }
     .g-middle {
         border-right: 2px solid white;
         height: 110px;
-        margin: 0 10px 0 8px;
+        margin: 0 10px 0 5px;
     }
     .f-lower-right {
         display: flex;
@@ -354,32 +376,77 @@
     .g-right-upper {
         font-size: 21px;
         font-style: italic;
-        margin-bottom: 10px;
     }
     .g-right-lower {
         font-size: 12px;
         line-height: 15px;
+        padding-right: 5px;
+        margin-top: 10px;
     }
     .f-lower-right {
         height: 160px;
         width: 260px;
         font-family: SimHei;
         display: flex;
-        align-items: center;
+        align-items: baseline;
+        padding: 0 15px 0 20px;
     }
     .h-detail {
+        position: relative;
         font-size: 14px;
-        align-items: center;
         font-style: italic;
+        padding-top: 20px;
+        text-indent: 50px;
+        align-items: center;
     }
-    .h-detail:before {
+    .h-detail::before {
         content: "“";
         font-size: 72px;
-        margin: 0 5px 0px -30px;
+        position: absolute;
+        left: -90px;
+        top: -5px;
+        font-style: normal;
+    }
+    .h-detail::after {
+        content: "”";
+        font-size: 72px;
+        position: absolute;
+        bottom: -70px;
+        right: -5px;
+        font-style: normal;
+    }
+    /*.h-detail:before {
+        position: absolute;
+        content: "“";
+        font-size: 72px;
+        margin: -50px 5px 0px -30px;
         font-style: normal;
     }
     .h-detail:after {
         content: "”";
+        position: absolute;
         font-size: 72px;
         font-style: normal;
+        right:  0px;
+
+    }*/
+
+    .footer-url {
+        border-top: 1px solid #999;
+        width: 892px;
+        margin-top: 30px;
+        /*height: 61px;*/
+        color: #676767;
+        font-family: SimHei;
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 2px;
+    }
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 14px solid #676767;
+        margin: 9px 10px 0 -15px;
     }
