@@ -1,11 +1,11 @@
 .container {
     min-width: 973px;
+    font-family: Microsoft YaHei;
 }
 header {
     display: flex;
     justify-content: space-between;
     height: 40px;
-    font-family: Microsoft YaHei;
     border-bottom:
 }
 .header-titles {
@@ -34,7 +34,6 @@ header {
     position: absolute;
     left: 70px;
     top: 140px;
-    font-family: Microsoft YaHei;
     color: white;
 }
 
@@ -56,12 +55,11 @@ header {
     padding: 5px 0 70px 5px;
 }
 .a-button {
-    background-color: #27ae60;
+    background-color: rgba(39, 174, 96, 0.8);
     padding: 13px 120px;
     border-style: none;
     font-size: 26px;
     color: white;
-    font-family: Microsoft YaHei;
     border-radius: 2px;
 }
 .b {
@@ -87,7 +85,6 @@ header {
     align-items: center;
     padding: 20px 60px 30px 60px;
     border-right: 2px solid #AAAAAA;
-    font-family: Microsoft YaHei;
     font-size: 16px;
     height: 0px;
     text-align: center;
@@ -103,13 +100,12 @@ header {
     height: 0px;
     text-align: center;
     color: #676767;
-    font-family: Microsoft YaHei;
     font-size: 16px;
     line-height: 25px;
     border-right: hidden;
 }
 .c {
-    background-color: #EEFFBB;
+    background-color: #F5FFFA;
     height: 350px;
     width: 100%;
     margin: 40px 0 0px 0;
@@ -126,18 +122,62 @@ header {
 }
 .c-title {
     font-size: 34px;
-    font-family: Microsoft YaHei;
     color: #676767;
 }
 .d {
     height: 300px;
     width: 100%;
     /*opacity: 0.8;*/
-    background-color: #F5FFFA;
+    background-color: #EEFFBB;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #676767;
+    position: relative;
+}
+.d-title {
+    font-size: 22px;
+    padding: 0 0 30px 0;
+}
+.d-title::after {
+    content: '—';
+    position: absolute;
+    margin-left: -11px;
+    left: 50%;
+    top: 30%;
+    color: #27ae60;
+}
+.d-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 10px 0 25px 0;
+}
+select {
+    width: 200px;
+    height: 40px;
+    margin: 20px 20px 20px 0;
+    border-color: white;
+    font-family: Microsoft YaHei;
+    font-size: 14px;
+    color: #676767;
+}
+select:focus {
+    outline: none;
+    border: 1px solid rgb(39, 174, 96);
+}
+.d-button {
+    border-style: none;
+    padding: 8px 70px 10px 95px;
+    background-color: rgba(39, 174, 96, 0.8);
+    border-radius: 2px;
+    letter-spacing: 20px;
+    font-size: 16px;
+    font-family: Microsoft YaHei;
+    color: white;
 }
 .e {
     height: 570px;
@@ -164,7 +204,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Microsoft YaHei;
 }
 .e-city {
     font-size: 18px;
@@ -235,12 +274,14 @@ header {
     flex-direction: column;
     flex: 1.5;
 }
+
 /*.i-right-name{
   flex: 1;
 }
 .i-right-age{
   flex: 1;
 }*/
+
 .j {
     display: flex;
     flex-direction: column;
@@ -250,13 +291,13 @@ header {
     width: 100%;
     background-color: #EEFFBB;
 }
-footer{
-  background-color: #FFF5EE;
-  display: flex;
-  justify-content: space-between;
-  height: 100px;
-  align-items: center;
+footer {
+    background-color: #FFF5EE;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
 }
-.footer-a{
-  text-decoration: none;
+.footer-a {
+    text-decoration: none;
 }
