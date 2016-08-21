@@ -1,0 +1,41 @@
+.container {
+    font-family: Microsoft YaHei;
+}
+.header-buttons {
+    display: flex;
+    color: #676767;
+    margin-left: 100px;
+    font-size: 14px;
+}
+.header-button {
+    padding: 12px 10px 15px 10px;
+}
+.header-button:hover {
+    font-weight: 700px;
+    color: #27ae60;
+}
+.header-pic {
+    background-color: #27ae60;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    align-items: center;
+
+}
+.header-left {
+    flex: 3;
+    color: white;
+}
+.layout {
+    font-size: 60px;
+    padding: 0px 0 0 105px;
+}
+.header-detail {
+    padding: 10px 30px 0 105px;
+    font-size: 24px;
+    line-height: 35px;
+    font-family: Arial;
+}
+.header-right {
+    flex: 1;
+}
