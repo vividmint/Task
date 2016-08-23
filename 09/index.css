@@ -45,6 +45,7 @@
         font-size: 24px;
         position: absolute;
         margin: 0px 0px 0 330px;
+        cursor: pointer;
     }
     .user {
         font-size: 18px;
@@ -317,6 +318,9 @@
         color: #676767;
         width: 25px;
         cursor: pointer;
+    }
+    .arrow:hover{
+      background: #ecf0f1;
     }
     .arrow-left {
         margin-right: 3px;
@@ -853,7 +857,7 @@
         border-width: 1px;
         border-color: #2189bf;
     }
-    button:hover {
+    .look-up:hover {
         background-color: #236b9b;
     }
     body, div, ul, ol, li, input p, th, td {
