@@ -22,11 +22,7 @@
             </div>
         </header>
         <div class="main">
-
-
-
             <aside class="left">
-
                 <div class="profile">
                     <div class="profile-top">
                         <div class="profile-circles">
@@ -46,35 +42,56 @@
                             <div>粉丝</div>
                         </div>
                     </div>
-                    <nav>
-                        <div class="nav-lists">
-                            <div class="nav-list">
-                                <div class="nav-icon"><i class="fa fa-star"></i></div>
-                                <div id="nav-name">个人报表</div>
+                </div>
+                <nav>
+                    <div class="nav-lists">
+                        <div class="personal-form">
+                            <div class="nav-list1">
+                                <div class="form-top">
+                                    <span class="nav-icon opened"><i class="fa fa-star"></i></span>
+                                    <span class="nav-name opened">个人报表</span>
+                                </div>
                             </div>
-                            <div class="nav-list">
-                                <div class="nav-icon"><i class="fa fa-star"></i></div>
-                                <div id="nav-name">个人收藏</div>
-                            </div>
-                            <div class="nav-list">
-                                <div class="nav-icon"><i class="fa fa-star"></i></div>
-                                <div id="nav-name">我的分享</div>
-                            </div>
-                            <div class="nav-list">
-                                <div class="nav-icon"><i class="fa fa-star"></i></div>
-                                <div id="nav-name">图库</div>
-                            </div>
-                            <div class="nav-list">
-                                <div class="nav-icon"><i class="fa fa-star"></i></div>
-                                <div id="nav-name">成长记录</div>
-                            </div>
-                            <div class="nav-list">
-                                <div class="nav-icon"><i class="fa fa-star"></i></div>
-                                <div id="nav-name">账户信息</div>
+                            <div class="form-bottom">
+                                <div class="folder"><i class="fa arrow-icon fa-angle-right"></i><i class="fa folder-icon fa-folder"></i>文件夹一</div>
+                                <div class="folder opened"><i class="fa arrow-icon fa-angle-down"></i><i class="fa folder-icon fa-folder"></i>文件夹二</div>
+                                <div class="folder opened"><i class="fa folder-icon fa-file-text-o"></i>文档一</div>
+                                <div class="folder"><i class="fa folder-icon fa-file-text-o"></i>文档一</div>
+                                <div class="folder"><i class="fa arrow-icon fa-angle-right"></i><i class="fa folder-icon fa-folder"></i>文件夹三</div>
                             </div>
                         </div>
-                    </nav>
-
+                        <div class="nav-list">
+                            <div class="form-top">
+                                <span class="nav-icon"><i class="fa fa-star"></i></span>
+                                <span class="nav-name">个人收藏</span>
+                            </div>
+                        </div>
+                        <div class="nav-list">
+                            <div class="form-top">
+                                <span class="nav-icon"><i class="fa fa-star"></i></span>
+                                <span class="nav-name">个人收藏</span>
+                            </div>
+                        </div>
+                        <div class="nav-list">
+                            <div class="form-top">
+                                <span class="nav-icon"><i class="fa fa-star"></i></span>
+                                <span class="nav-name">个人收藏</span>
+                            </div>
+                        </div>
+                        <div class="nav-list">
+                            <div class="form-top">
+                                <span class="nav-icon"><i class="fa fa-star"></i></span>
+                                <span class="nav-name">个人收藏</span>
+                            </div>
+                        </div>
+                        <div class="nav-list">
+                            <div class="form-top">
+                                <span class="nav-icon"><i class="fa fa-star"></i></span>
+                                <span class="nav-name">个人收藏</span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </aside>
 
             <div class="right">
@@ -99,7 +116,6 @@
                                     <option value="b">Shaw</option>
                                     <option value="c">John</option>
                                 </select>
-
                             </div>
                             <div class="query-b-bottom">
                                 <div class="name business">卖方</div>
@@ -135,7 +151,6 @@
                                 <select class="query-select deal black-arrow" name="">
                                     <option value="a">10项</option>
                                 </select>
-
                             </div>
                         </div>
                         <button type="button" class="first-query">搜索</button>
@@ -198,12 +213,12 @@
                             <i class="fa fa-calendar"></i>
                             <input type="submit" class="calendar" value="历史查询">
                         </div>
-
                     </section>
 
                     <section class="count">
                         <div class="count-title">2016年8月统计</div>
                         <div class="count-list">
+
                             <div class="count-item margin-r one">
                                 <div class="color-left">
                                     <div class="count-number">201666</div>
@@ -465,10 +480,9 @@
                                             </div>
                                         </li>
                                     </ul>
-
                                 </div>
-
                             </section>
+
                             <section class="project narrow">
                                 <div class="project-titles">第一组项目</div>
                                 <div class="narrow-content">
@@ -576,131 +590,154 @@
                                 <div class="project-titles">汽车品牌排行榜</div>
                                 <div class="car-list-content">
                                     <table border="1" bordercolor="#cacbcb" class="car">
-                                        <tr>
-                                            <th>排名</th>
-                                            <th>品牌</th>
-                                            <th>搜索指数</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>大众</td>
-                                            <td>
+                                        <thead>
+                                            <tr>
+                                                <th>排名</th>
+                                                <th>品牌</th>
+                                                <th>搜索指数</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>大众</td>
+                                                <td>
+                                                    <div class="car-bar">
+                                                        <div>48912001</div>
+                                                        <div class="bar">
+                                                            <div class="percent red c80-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>丰田</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <div>48912001</div>
-                                                    <div class="w 80-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>丰田</td>
-                                            <td>
+                                                    <div class="car-bar">
+                                                        <span>29307333</span>
+                                                        <div class="bar">
+                                                            <div class="percent red c70-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>奥迪</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <span>29307333</span>
-                                                    <div class="w 70_perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>奥迪</td>
-                                            <td>
+                                                    <div class="car-bar">
+                                                        <span>23139070</span>
+                                                        <div class="bar">
+                                                            <div class="percent red c60-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>本田</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <span>23139070</span>
-                                                    <div class="w 60-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>本田</td>
-                                            <td>
+                                                    <div class="car-bar">
+                                                        <div class="bar-number">22885564</div>
+                                                        <div class="bar">
+                                                            <div class="percent blue c55-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>福特</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <span>22885564</span>
-                                                    <div class="w 55-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>福特</td>
-                                            <td>
+                                                    <div class="car-bar">
+                                                        <div class="bar-number">22324792</div>
+                                                        <div class="bar">
+                                                            <div class="percent blue c50-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>宝马</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <span>22324792</span>
-                                                    <div class="w 50-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>宝马</td>
-                                            <td>
+                                                    <div class="car-bar">
+                                                        <div class="bar-number">21444077</div>
+                                                        <div class="bar">
+                                                            <div class="percent blue c40-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>现代</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <span>21444077</span>
-                                                    <div class="w 40-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>现代</td>
-                                            <td>
+                                                    <div class="car-bar">
+                                                        <div class="bar-number">20114969</div>
+                                                        <div class="bar">
+                                                            <div class="percent blue c35-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>起亚</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <span>20114969</span>
-                                                    <div class="w 35-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>起亚</td>
-                                            <td>
+                                                    <div class="car-bar">
+                                                        <div class="bar-number">19251689</div>
+                                                        <div class="bar">
+                                                            <div class="percent blue c30-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>奔驰</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <span>19251689</span>
-                                                    <div class="w 30-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>奔驰</td>
-                                            <td>
+                                                    <div class="car-bar">
+                                                        <div class="bar-number">19172837</div>
+                                                        <div class="bar">
+                                                            <div class="percent blue c28-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>别克</td>
+                                                <td>
 
-                                                <div class="car-bar">
-                                                    <span>19172837</span>
-                                                    <div class="w 28-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>别克</td>
-                                            <td>
-
-                                                <div class="car-bar">
-                                                    <span>18544027</span>
-                                                    <div class="w 25-perc"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                    <div class="car-bar">
+                                                        <div class="bar-number">18544027</div>
+                                                        <div class="bar">
+                                                            <div class="percent blue c25-perc"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </div>
                 </div>
             </div>
-            </div>
         </div>
-        </section>
-        </section>
+    </div>
+    </section>
+    </section>
 
-        </section>
+    </section>
 
 
 
