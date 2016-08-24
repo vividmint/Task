@@ -8,3 +8,4 @@
 7. [task 7](https://vividmint.github.io/Task/07)
 8. [task 8](https://vividmint.github.io/Task/08)
 9. [task 9](https://vividmint.github.io/Task/09)
+10. [task 10](https://vividmint.github.io/Task/10)
