@@ -12,7 +12,6 @@ body {
     align-items: center;
     width: 100%;
     background-color: #F5F5F5;
-
 }
 .nav {
     width: 100%;
@@ -208,19 +207,23 @@ body {
     width: 100%;
 }
 .article-right {
+    display: flex;
     flex: 2;
     flex-direction: column;
-    align-items: center;
     margin-left: 15px;
 }
 .article-title {
     display: flex;
-    flex: 5;
+    flex: 4;
+    align-items: flex-start;
+    height: 100%;
 }
 .article-bottom {
     display: flex;
     color: #AAAAAA;
     flex: 1;
+    height: 100%;
+    align-items: flex-end;
 }
 .from {
     margin-right: 15px;
@@ -248,7 +251,6 @@ body {
 .article-last .article-bottom {
     padding: 0 15px;
 }
-
 
 /*.articles article {
     border-bottom: .05rem solid #ECECEC;
