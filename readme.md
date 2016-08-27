@@ -11,3 +11,6 @@
 10. [task 10](https://vividmint.github.io/Task/10)
 11. [task 11](https://vividmint.github.io/Task/11)
 12. [task 12](https://vividmint.github.io/Task/12)
+13. [task 13](https://vividmint.github.io/Task/13)
+14. [task 14](https://vividmint.github.io/Task/14)
+15. [task 15](https://vividmint.github.io/Task/15)
