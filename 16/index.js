@@ -8,7 +8,6 @@
  */
 
 var aqiData = {};
-var initFlag = false;
 
 /**
  * 从用户输入中获取数据，向aqiData中增加一条数据
@@ -20,14 +19,22 @@ function addAqiData(aqiData) {}
 /**
  * 渲染aqi-table表格
  */
-function renderAqiList(cityInput,airInput) {
-    if (initFlag === false) {
-        document.querySelector("#aqi-table").innerHTML = `<tr><td>城市</td><td>空气质量</td><td>操作</td></tr><td>${cityInput}</td><td>${airInput}</td><td><button class = "delBtn">删除</button></td>`
-        initFlag = true;
-    }else{
-      var tr = document.createElement("tr");
-      document.querySelector("#aqi-table").appendChild(tr).innerHTML =`<td>${cityInput}</td><td>${airInput}</td><td><button class = "delBtn">删除</button></td>`;
-    }
+// function renderAqiList(cityInput,airInput) {
+//     if (initFlag === false) {
+//         document.querySelector("#aqi-table").innerHTML = `<tr><td>城市</td><td>空气质量</td><td>操作</td></tr><td>${cityInput}</td><td>${airInput}</td><td><button class = "delBtn">删除</button></td>`
+//         initFlag = true;
+//     }else{
+//       var tr = document.createElement("tr");
+//       document.querySelector("#aqi-table").appendChild(tr).innerHTML =`<td>${cityInput}</td><td>${airInput}</td><td><button class = "delBtn">删除</button></td>`;
+//     }
+// }
+
+function renderAqiList(){
+  var items = `<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>`;
+for (var city in aqiData){
+  items += `<tr><td>${city}</td><td>${aqiData[city]}</td><td><button class = "del-btn" data-key = "${city}">删除</button></td></tr>`
+}
+document.querySelector("#aqi-table").innerHTML = city?items:"";
 }
 
 /**
@@ -35,23 +42,28 @@ function renderAqiList(cityInput,airInput) {
  * 获取用户输入，更新数据，并进行页面呈现的更新
  */
 function addBtnHandle() {
-    var cityInput = document.querySelector("#aqi-city-input").value;
-    var airInput = document.querySelector("#aqi-value-input").value;
-    console.log(cityInput);
+    var cityInput = document.querySelector("#aqi-city-input").value.trim();
+    var airInput = document.querySelector("#aqi-value-input").value.trim();
+    if(!cityInput.match(/^[A-Za-z\u4E00-\u9FA5]+$/)){
+        alert("城市名必须为中英文字符！")
+        return;
+    }
+    if(!airInput.match(/^\d+$/)) {
+        alert("空气质量指数必须为整数！")
+        return;
+    }
     aqiData[cityInput] = airInput;
-    console.log(aqiData);
-
     addAqiData();
-    renderAqiList(cityInput,airInput);
+    renderAqiList();
 }
 
 /**
  * 点击各个删除按钮的时候的处理逻辑
  * 获取哪个城市数据被删，删除数据，更新表格显示
  */
-function delBtnHandle() {
+function delBtnHandle(city) {
     // do sth.
-
+delete aqiData[city];
     renderAqiList();
 }
 
@@ -61,6 +73,9 @@ function init() {
 
     // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
     document.querySelector('#add-btn').onclick = addBtnHandle;
+    document.querySelector("#aqi-table").addEventListener("click",function(event){
+      delBtnHandle(event.target.dataset.key);
+    });
 
 
 }
