@@ -33,7 +33,7 @@ function randomBuildData(seed) {
 
 var aqiSourceData = {
     "北京": randomBuildData(500),
-    "上海": randomBuildData(300),
+    "上海": randomBuildData(400),
     "广州": randomBuildData(200),
     "深圳": randomBuildData(100),
     "成都": randomBuildData(300),
@@ -59,15 +59,48 @@ var citySelect = document.querySelector('#city-select');
 /**
  * 渲染图表
  */
-var dayData = '';
-var wraps = '';
 
 function renderChart() {
-  var dayData=aqiSourceData[pageState.nowSelectCity];
-    for (var key in dayData) {
-        wraps += `<div class="wrap" style="height:${dayData[key]/500*100}%"></div>`;
+    if (pageState.nowGraTime == 'day') {
+        var dayData = aqiSourceData[pageState.nowSelectCity];
+        console.log(dayData);
+        var days = '';
+        for (var key in dayData) {
+            days += `<div class="wrap" style="height:${dayData[key]/500*100}%"></div>`;
+        }
+        document.querySelector(".aqi-chart-wrap").innerHTML = days;
     }
-    document.querySelector(".aqi-chart-wrap").innerHTML = wraps;
+    if (pageState.nowGraTime == 'week') {
+      var dayData = aqiSourceData[pageState.nowSelectCity];
+      console.log(dayData);
+      var arr = [];
+      for (var key in dayData){
+        arr.push(`${dayData[key]}`);
+        console,log(arr);
+      }
+
+
+
+        // for (var i = 0; i < dayData.length; i++) {
+        //     var weekData = '';
+        //     var arr = [];
+        //     if (i <= 7) {
+        //         var dayData = aqiSourceData[pageState.nowSelectCity];
+        //         weekValue = dayData;
+        //         weekValue += weekValue;
+        //     } else {
+        //         arr.push({
+        //             value: weekValue
+        //         });
+        //         console.log(weekData);
+        //     }
+        // }
+        // var weeks = '';
+        // for (var key in weekData) {
+        //     weeks += `<div class="wrap" style="height:${dayData[key]/500*100}%"></div>`;
+        // }
+        // document.querySelector(".aqi-chart-wrap").innerHTML = weeks;
+    }
 }
 renderChart();
 
@@ -75,31 +108,41 @@ renderChart();
  * 日、周、月的radio事件点击时的处理函数
  */
 function graTimeChange() {
-    // if (pageState.nowGraTime == this.value) {
-//     return;
-// } else {
-//     pageState.nowGraTime = this.value;
-// }
+    var radios = document.querySelectorAll(".gra-time");
+    var timeChangeVal = "";
+    for (var i = 0; i < radios.length; i++) {
+        radios[i].onclick = function(event) {
+            timeChangeVal = event.target.value;
+            pageState.nowGraTime = timeChangeVal;
+            console.log(pageState.nowGraTime);
+        }
+    }
+    if (pageState.nowGraTime == timeChangeVal) {
+        return;
+    } else {
+        pageState.nowGraTime = timeChangeVal;
+    }
     // 设置对应数据
     initAqiChartData();
     // 调用图表渲染函数
     renderChart();
 }
+//
+graTimeChange();
+
 
 /**
  * select发生变化时的处理函数
  */
 function citySelectChange(event) {
-      document.querySelector("#city-select").addEventListener('change', citySelectChange, false);
-      var cityChangeVal = event.target.value;
-      console.log(cityChangeVal);
-
+    document.querySelector("#city-select").addEventListener('change', citySelectChange, false);
+    var cityChangeVal = event.target.value;
     // 确定是否选项发生了变化
-    // if (pageState.nowSelectCity == this.value) {
-    //     return;
-    // } else {
-    //     pageState.nowSelectCity = this.value;
-    // }
+    if (pageState.nowSelectCity == event.target.value) {
+        return;
+    } else {
+        pageState.nowSelectCity = event.target.value;
+    }
     // 设置对应数据
     initAqiChartData();
     // 调用图表渲染函数
@@ -113,21 +156,11 @@ function initGraTimeForm() {
     if (document.querySelector(".gra-time").checked) {
         var timeVal = document.querySelector(".gra-time").value;
     }
-    console.log(timeVal);
+    // console.log(timeVal);
     pageState.nowGraTime = timeVal;
-    console.log(pageState);
-    var radios = document.querySelectorAll(".gra-time");
-    var timeChangeVal = "";
-    for (var i = 0; i < radios.length; i++) {
-        radios[i].onclick = function(e) {
-            timeChangeVal = e.target.value;
-            pageState.nowGraTime = timeChangeVal;
-            console.log(pageState);
-        }
-    }
-
-
+    // console.log(pageState);
 }
+initGraTimeForm();
 
 /**
  * 初始化城市Select下拉选择框中的选项
@@ -140,14 +173,9 @@ function initCitySelector() {
     document.querySelector("#city-select").innerHTML = cityItems;
     // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
     var cityVal = document.querySelector("#city-select").value;
-    console.log(cityVal);
+    // console.log(cityVal);
     // 给select设置事件，当选项发生变化时调用函数citySelectChange
     document.querySelector("#city-select").addEventListener('change', citySelectChange, false);
-    // function citySelectChange(event) {
-    //     var cityChangeVal = event.target.value;
-    //     console.log(cityChangeVal);
-    // }
-
 }
 initCitySelector();
 /**
@@ -157,20 +185,18 @@ function initAqiChartData() {
     var nowCityData = aqiSourceData[pageState.nowSelectCity];
     //nowCityData是确定的一个城市的92天降水数组，key是日期，nowCityData[key]是降水量
 
-    if (pageState.nowGraTime == 'day') {
-        chartData = nowCityData;
-    }
+
     if (pageState.nowGraTime == 'week') {
-        chartData = {};
+        weekData = {};
         var countSum = 0,
-            daySum = 0,
+            dayData = 0,
             week = 0;
         for (var item in nowCityData) {
             countSum += nowCityData[item];
             daySum++;
             if ((new Date(item)).getDay() == 6) {
                 week++;
-                chartData['第' + week + '周'] = Math.floor(countSum / daySum);;
+                chartData['第' + week + '周'] = Math.floor(countSum / daySum);
                 countSum = 0;
                 daySum = 0;
             }
@@ -201,7 +227,7 @@ function initAqiChartData() {
         } //逻辑同周，不知道对不对
     }
 }
-
+initAqiChartData();
 
 /**
  * 初始化函数
