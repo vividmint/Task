@@ -1,29 +1,43 @@
 <!DOCTYPE>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./index.css" media="screen" title="no title" charset="utf-8">
     <title>Task 17</title>
 
-  </head>
+</head>
+
 <body>
-  <fieldset id="form-gra-time">
-    <legend>请选择日期粒度：</legend>
-    <label>日<input name="gra-time" class = "gra-time" value="day" type="radio" checked="checked"></label>
-    <label>周<input name="gra-time" class = "gra-time" value="week" type="radio"></label>
-    <label>月<input name="gra-time" class = "gra-time" value="month" type="radio"></label>
-  </fieldset>
+    <fieldset id="form-gra-time">
+        <legend>请选择日期粒度：</legend>
+        <label>日
+            <input name="gra-time" class="gra-time" value="day" type="radio" checked="checked">
+        </label>
+        <label>周
+            <input name="gra-time" class="gra-time" value="week" type="radio">
+        </label>
+        <label>月
+            <input name="gra-time" class="gra-time" value="month" type="radio">
+        </label>
+    </fieldset>
 
-  <fieldset>
-    <legend>请选择查看的城市：</legend>
-    <select id="city-select">
-      <!-- <option>北京</option>
-      <option>成都</option>
-      <option>深圳</option> -->
-    </select>
-  </fieldset>
+    <fieldset>
+        <legend>请选择查看的城市：</legend>
+        <select id="city-select"></select>
+    </fieldset>
 
-  <div class="aqi-chart-wrap">
-  </div>
-  <script src="./index.js"></script>
+    <div class="aqi-chart-wrap">
+        <!-- <div class="wrap" style="height: 20%"></div>
+        <div class="wrap" style="height: 30%"></div>
+        <div class="wrap" style="height: 50%"></div>
+        <div class="wrap" style="height: 60%"></div>
+        <div class="wrap" style="height: 30%"></div>
+        <div class="wrap" style="height: 10%"></div>
+        <div class="wrap" style="height: 20%"></div>
+        <div class="wrap" style="height: 80%"></div> -->
+    </div>
+    <script src="./index.js"></script>
 </body>
+
 </html>
