@@ -61,75 +61,47 @@ var citySelect = document.querySelector('#city-select');
  */
 
 function renderChart() {
+    var data = {};
+    var base = 500;
+    var dataSource = aqiSourceData[pageState.nowSelectCity];
     if (pageState.nowGraTime == 'day') {
-        var dayData = aqiSourceData[pageState.nowSelectCity];
-        console.log(dayData);
-        var days = '';
-        for (var key in dayData) {
-            days += `<div class="wrap" style="height:${dayData[key]/500*100}%"></div>`;
-        }
-        document.querySelector(".aqi-chart-wrap").innerHTML = days;
+        data = dataSource;
     }
     if (pageState.nowGraTime == 'week') {
-      var dayData = aqiSourceData[pageState.nowSelectCity];
-      console.log(dayData);
-      var arr = [];
-      for (var key in dayData){
-        arr.push(`${dayData[key]}`);
-        console,log(arr);
-      }
-
-
-
-        // for (var i = 0; i < dayData.length; i++) {
-        //     var weekData = '';
-        //     var arr = [];
-        //     if (i <= 7) {
-        //         var dayData = aqiSourceData[pageState.nowSelectCity];
-        //         weekValue = dayData;
-        //         weekValue += weekValue;
-        //     } else {
-        //         arr.push({
-        //             value: weekValue
-        //         });
-        //         console.log(weekData);
-        //     }
-        // }
-        // var weeks = '';
-        // for (var key in weekData) {
-        //     weeks += `<div class="wrap" style="height:${dayData[key]/500*100}%"></div>`;
-        // }
-        // document.querySelector(".aqi-chart-wrap").innerHTML = weeks;
-    }
-}
-renderChart();
-
-/**
- * 日、周、月的radio事件点击时的处理函数
- */
-function graTimeChange() {
-    var radios = document.querySelectorAll(".gra-time");
-    var timeChangeVal = "";
-    for (var i = 0; i < radios.length; i++) {
-        radios[i].onclick = function(event) {
-            timeChangeVal = event.target.value;
-            pageState.nowGraTime = timeChangeVal;
-            console.log(pageState.nowGraTime);
+        base = 3500;
+        var i = 0,
+            weekSum = 0,
+            j = 1;
+        for (var key in dataSource) {
+            if (i < 7) {
+                weekSum += dataSource[key];
+                i++;
+            } else {
+                var k = `2016年第${j}周`;
+                data[k] = weekSum;
+                i = 0;
+                weekSum = 0;
+                j++;
+            }
         }
     }
-    if (pageState.nowGraTime == timeChangeVal) {
-        return;
-    } else {
-        pageState.nowGraTime = timeChangeVal;
+    if (pageState.nowGraTime == 'month') {
+        base = 15500;
+        var str = '';
+        for (var key in dataSource) {
+            str = key.substring(6, 7);
+            data[str] = (data[str]?data[str]:0) + dataSource[key];
+        }
     }
-    // 设置对应数据
-    initAqiChartData();
-    // 调用图表渲染函数
-    renderChart();
-}
-//
-graTimeChange();
 
+    var days = '';
+    for (var key in data) {
+        days += `<div class="wrap" style="height:${data[key]/base*100}%"></div>`;
+    }
+    document.querySelector(".aqi-chart-wrap").innerHTML = days;
+
+
+}
 
 /**
  * select发生变化时的处理函数
@@ -143,8 +115,6 @@ function citySelectChange(event) {
     } else {
         pageState.nowSelectCity = event.target.value;
     }
-    // 设置对应数据
-    initAqiChartData();
     // 调用图表渲染函数
     renderChart();
 }
@@ -153,15 +123,20 @@ function citySelectChange(event) {
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
  */
 function initGraTimeForm() {
-    if (document.querySelector(".gra-time").checked) {
-        var timeVal = document.querySelector(".gra-time").value;
+    var radios = document.querySelectorAll(".gra-time");
+    var timeChangeVal = "";
+    for (var i = 0; i < radios.length; i++) {
+        radios[i].onclick = function(event) {
+            timeChangeVal = event.target.value;
+            if (pageState.nowGraTime == timeChangeVal) {
+                return;
+            } else {
+                pageState.nowGraTime = timeChangeVal;
+                renderChart();
+            }
+        }
     }
-    // console.log(timeVal);
-    pageState.nowGraTime = timeVal;
-    // console.log(pageState);
 }
-initGraTimeForm();
-
 /**
  * 初始化城市Select下拉选择框中的选项
  */
@@ -177,58 +152,6 @@ function initCitySelector() {
     // 给select设置事件，当选项发生变化时调用函数citySelectChange
     document.querySelector("#city-select").addEventListener('change', citySelectChange, false);
 }
-initCitySelector();
-/**
- * 初始化图表需要的数据格式
- */
-function initAqiChartData() {
-    var nowCityData = aqiSourceData[pageState.nowSelectCity];
-    //nowCityData是确定的一个城市的92天降水数组，key是日期，nowCityData[key]是降水量
-
-
-    if (pageState.nowGraTime == 'week') {
-        weekData = {};
-        var countSum = 0,
-            dayData = 0,
-            week = 0;
-        for (var item in nowCityData) {
-            countSum += nowCityData[item];
-            daySum++;
-            if ((new Date(item)).getDay() == 6) {
-                week++;
-                chartData['第' + week + '周'] = Math.floor(countSum / daySum);
-                countSum = 0;
-                daySum = 0;
-            }
-        }
-        if (daySum != 0) {
-            week++;
-            chartData['第' + week + '周'] = Math.floor(countSum / daySum);
-        } //保证最后一周若不满也能算一周
-    }
-    if (pageState.nowGraTime == 'month') {
-        chartData = {};
-        var countSum = 0,
-            daySum = 0,
-            month = 0;
-        for (var item in nowCityData) {
-            countSum += nowCityData[item];
-            daySum++;
-            if ((new Date(item)).getMonth() !== month) {
-                month++;
-                chartData['第' + month + '月'] = Math.floor(countSum / daySum);
-                countSum = 0
-                daySum = 0;
-            }
-        }
-        if (daySum != 0) {
-            month++;
-            chartData['第' + month + '月'] = Math.floor(countSum / daySum);
-        } //逻辑同周，不知道对不对
-    }
-}
-initAqiChartData();
-
 /**
  * 初始化函数
  */
@@ -236,7 +159,8 @@ function init() {
 
     initGraTimeForm()
     initCitySelector();
-    initAqiChartData();
+    renderChart();
+
 }
 
 init();

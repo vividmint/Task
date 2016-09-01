@@ -9,12 +9,13 @@
     flex: 1;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 .wrap:nth-last-child(5n+1) {
-    background-color: #1abc9c;
+    background-color: #f1c40f;
 }
 .wrap:nth-last-child(5n+2) {
-    background-color: #f1c40f;
+    background-color: #1abc9c;
 }
 .wrap:nth-last-child(5n+3) {
     background-color: #e74c3c;
