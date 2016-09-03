@@ -56,6 +56,16 @@ var pageState = {
 var formGraTime = document.querySelector('#form-gra-time');
 var citySelect = document.querySelector('#city-select');
 
+function getTitle() {
+    switch (pageState.nowGraTime) {
+        case "day":
+            return "每日";
+        case "week":
+            return "周平均";
+        case "month":
+            return "月平均";
+    }
+}
 /**
  * 渲染图表
  */
@@ -64,41 +74,58 @@ function renderChart() {
     var data = {};
     var base = 500;
     var dataSource = aqiSourceData[pageState.nowSelectCity];
+    var days = `<div class="title">${pageState.nowSelectCity}市01-03月：${getTitle()}空气质量报告</div>`;
+    var innerHTML = "";
     if (pageState.nowGraTime == 'day') {
         data = dataSource;
+        for (var key in data) {
+            days += `<div class="wrap" title=${key}：[AQI]:${dataSource[key]} style="height:${data[key]/base*100}%"></div>`;
+        }
     }
     if (pageState.nowGraTime == 'week') {
         base = 3500;
         var i = 0,
             weekSum = 0,
             j = 1;
+            // k = 1;
         for (var key in dataSource) {
             if (i < 7) {
                 weekSum += dataSource[key];
                 i++;
+                console.log(weekSum);
+
             } else {
-                var k = `2016年第${j}周`;
-                data[k] = weekSum;
+                var m = `2016年第${j}周`;
+                // console.log(m);
+                data[m] = weekSum;
                 i = 0;
                 weekSum = 0;
                 j++;
+                // K++;
             }
+        }
+        for (var key in data) {
+            days += `<div class="wrap" title=${key}：[AQI]:${data[key]} style="height:${data[key]/base*100}%"></div>`;
         }
     }
     if (pageState.nowGraTime == 'month') {
         base = 15500;
         var str = '';
         for (var key in dataSource) {
-            str = key.substring(6, 7);
-            data[str] = (data[str]?data[str]:0) + dataSource[key];
+            str = key.substring(0, 7);
+            data[str] = (data[str] ? data[str] : 0) + dataSource[key];
+        }
+        for (var key in data) {
+            days += `<div class="wrap" title=${key}：[AQI]:${data[key]} style="height:${data[key]/base*100}%"></div>`;
         }
     }
-
-    var days = '';
-    for (var key in data) {
-        days += `<div class="wrap" style="height:${data[key]/base*100}%"></div>`;
-    }
+    // var days = `<div class="title">${pageState.nowSelectCity}市01-03月：${getTitle()}空气质量报告</div>`;
+    // var innerHTML = "";
+    // for (var key in data) {
+    //     days += `<div class="wrap" title=${key}[AQI]： style="height:${data[key]/base*100}%"></div>`;
+    // }
     document.querySelector(".aqi-chart-wrap").innerHTML = days;
+
 
 
 }

@@ -2,7 +2,7 @@
     display: flex;
     height: 500px;
     align-items: flex-end;
-    margin-top: 30px;
+    margin-top: 80px;
 }
 .wrap {
     background-color: #3498db;
@@ -10,6 +10,9 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+}
+.wrap:hover{
+
 }
 .wrap:nth-last-child(5n+1) {
     background-color: #f1c40f;
@@ -22,4 +25,28 @@
 }
 .wrap:nth-last-child(5n+4) {
     background-color: #8e44ad;
+}
+.title {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 145px;
+    color: black;
+}
+.show + div {
+    display: block;
+}
+.aqi-hint {
+    position: absolute;
+    display: none;
+    width: 120px;
+    border: 1px solid #16324a;
+    background-color: white;
+    z-index: 999;
+    font-size: .75rem;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #dddddd;
+    opacity: .8;
 }
