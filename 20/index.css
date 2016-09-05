@@ -1,0 +1,55 @@
+* {
+    font-family: "Microsoft YaHei", sans-serif;
+    box-sizing: border-box;
+}
+fieldset {
+    width: 480px;
+    margin: 20px auto;
+    border: solid 2px #DDDDDD;
+    border-radius: 5px;
+}
+textarea {
+    float: left;
+    resize: none;
+    border-radius: 2px;
+}
+button {
+    float: left;
+    margin: 15px 10px 5px 0px;
+    background-color: white;
+    border: 1px solid #AAAAAA;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+button:last-child {
+    margin: 15px 0 5px 0px;
+}
+input {
+    float: left;
+    margin: 16px 12px 5px 18px;
+    height: 28px;
+}
+.screen {
+    width: 542px;
+    min-height: 200px;
+    overflow: hidden;
+    margin: 20px auto;
+    border: solid 2px #DDDDDD;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    padding: 10px 5px;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    margin: 5px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 5px;
+    background-color: #CCBBFF;
+    color: white;
+    border-radius: 3px;
+}
