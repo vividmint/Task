@@ -33,11 +33,11 @@ function buttonslistener() {
     })
 };
 function searchListener(){
-  document.querySelector('.search').onlick = searchSth;
+  document.querySelector('.search').onlick = searchSth(arr);
 }
 function searchSth(arr) {
     var searchValue = document.querySelector('.content').value;
-    var result = arr.test(searchValue);
+    var result = /arr/.test(searchValue);
     if (result == false) {
         alert("没有查询到该字符！");
     } else {

@@ -27,7 +27,8 @@ button:last-child {
 }
 input {
     float: left;
-    margin: 16px 12px 5px 18px;
+    margin: 16px 12px 5px 12px;
+    padding: 0 0 0 5px;
     height: 28px;
 }
 .screen {
@@ -41,7 +42,45 @@ input {
     position: relative;
     padding: 10px 5px;
 }
-
+/*@keyframes drop {
+    0% {
+        transform: translateY(-55px);
+    }
+    20% {
+        transform: translateY(-30px);
+    }
+    40% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+}
+.screen span {
+    height: 50px;
+    font-size: 24px;
+    line-height: 50px;
+    color: white;
+    background-color: #3498db;
+    min-width: 50px;
+    float: left;
+    margin: 5px;
+    animation: drop 0.3s ease-in-out;
+    transition: height, background-color 0.2s;
+    cursor: pointer;
+}
+@keyframes disappear {
+    0% {
+        min-width: 50px;
+        margin: 5px;
+    }
+}
+.screen span.removing {
+    min-width: 0;
+    width: 0;
+    margin: 5px 0;
+    animation: disappear 0.5s ease-in-out;
+}*/
 li {
     list-style: none;
     display: inline-block;
