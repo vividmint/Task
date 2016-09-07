@@ -2,6 +2,7 @@ var tagArr = [];
 
 function tagListener() {
     document.querySelector('#button').onclick = tagConfirm;
+    
 }
 
 function render() {
@@ -25,7 +26,7 @@ function tagConfirm() {
         return;
     } else {
         for (var i = 0; i < tagArr.length; i++) {
-            var result = tagValue.match(tagArr[i]);
+        var result = tagValue.match(/tagArr[i]/g);
             console.log(result);
             if (result == null) {
                 return true;
