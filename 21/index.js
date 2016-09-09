@@ -7,6 +7,38 @@ var hobbyArr = [{
     className: 'normal',
     value: '一颗赛艇',
     flag: false
+}, {
+    className: 'normal',
+    value: '2',
+    flag: false
+}, {
+    className: 'normal',
+    value: '3',
+    flag: false
+}, {
+    className: 'normal',
+    value: '4',
+    flag: false
+}, {
+    className: 'normal',
+    value: '5',
+    flag: false
+}, {
+    className: 'normal',
+    value: '6',
+    flag: false
+}, {
+    className: 'normal',
+    value: '7',
+    flag: false
+}, {
+    className: 'normal',
+    value: '8',
+    flag: false
+}, {
+    className: 'normal',
+    value: '9',
+    flag: false
 }];
 var tagInput = document.querySelector('#tag').value.trim();
 var hobbyInput = document.querySelector('#hobby').value.trim();
@@ -82,33 +114,38 @@ function confirm(input, arr) {
         return true;
     }
 };
+
 function hobbyConfirm() {
-    var hobbyInput = document.querySelector('#hobby').value.trim();
-    if (document.querySelector('#hobby').value == '') {
+    if (document.querySelector('#hobby').value.trim() == '') {
         alert('请输入兴趣爱好！')
         return false;
     } else {
-        var result = /^[A-Za-z|\d|\u4E00-\u9FA5]*([,，、\n\s]*?)[A-Za-z|\d|\u4E00-\u9FA5]*$/.test(hobbyInput);
+        var hobbyInput = document.querySelector('#hobby').value.trim();
+        var result = hobbyInput.match(/^[A-Za-z|\d|\u4E00-\u9FA5]*[,，、\n\s]*[A-Za-z|\d|\u4E00-\u9FA5]*$/g);
         if (result == false) {
             alert('不合法输入！')
             return false;
         } else {
             var hobbyValue = hobbyInput.split(/[,，、\n\s]/);
-            for (var i = 0; i < hobbyArr.length; i++) {
-                for (var j = 0; j < hobbyArr.length; j++) {
-                    if (hobbyValue[i] == hobbyArr[j].value) {
-                        hobbyArr.splice(j, 1);
-                    }
-                }
-            };
-            if (hobbyArr.length > 9) {
+            console.log(hobbyArr.length);
+            if (hobbyArr.length > 10) {
                 hobbyArr.shift();
-            };
-            for (var i = 0; i < hobbyValue.length; i++) {
-                hobbyArr.push({
-                    className: "normal",
-                    value: hobbyValue[i]
-                })
+            } else {
+                for (var i = 0; i < hobbyArr.length; i++) {
+                    for (var j = 0; j < hobbyArr.length; j++) {
+                        if (hobbyValue[i] == hobbyArr[j].value) {
+                            hobbyArr.splice(j, 1);
+                        }
+                    }
+                };
+                console.log(hobbyArr.length);
+
+                for (var i = 0; i < hobbyValue.length; i++) {
+                    hobbyArr.push({
+                        className: "normal",
+                        value: hobbyValue[i]
+                    })
+                }
             }
         }
         return true;
@@ -141,7 +178,7 @@ function enterT(event) {
 function leaveT() {
     var list = document.querySelectorAll(".items");
     for (var i = 0; i < list.length; i++) {
-        list[i].addEventListener("mouseleave", function(ee) {
+        list[i].addEventListener("mouseout", function(ee) {
             leaveRenderT(ee.target.dataset.index);
         })
     }
@@ -189,7 +226,7 @@ function enterH(event) {
 function leaveH() {
     var list = document.querySelectorAll(".items");
     for (var i = 0; i < list.length; i++) {
-        list[i].addEventListener("mouseleave", function(ee) {
+        list[i].addEventListener("mouseout", function(ee) {
             leaveRenderH(ee.target.dataset.index);
         })
     }
