@@ -5,36 +5,40 @@ var tagArr = [{
 }];
 var hobbyArr = [{
     className: 'normal',
-    value: ''
+    value: '一颗赛艇',
+    flag: false
 }];
 var tagInput = document.querySelector('#tag').value.trim();
 var hobbyInput = document.querySelector('#hobby').value.trim();
 
 
 function hobbyListener() {
-
     document.querySelector('#submit').addEventListener("click", function(event) {
-        hobbyRender();
-        document.querySelector('#hobby').value = '';
-    });
-}
+        if (hobbyConfirm() == false) {
+            return;
+        } else {
+            hobbyRender();
+            document.querySelector('#hobby').value = '';
+        }
+    })
+};
 
 function tagListener() {
     document.querySelector('#tag').addEventListener('keypress', function(e) {
         if (e.keyCode == 13 || e.keyCode == 44 || e.keyCode == 32) {
-            if (inputConfirm() == false) {
+            if (confirm(document.querySelector('#tag').value.trim(), tagArr) == false) {
                 return;
             } else {
                 var tagInput = document.querySelector('#tag').value.trim();
-                if (tagArr.length > 10) {
+                if (tagArr.length > 9) {
                     tagArr.shift();
                 }
                 tagArr.push({
                     className: "normal",
                     value: tagInput
                 });
-                document.querySelector('#tag').value = '';
                 tagRender();
+                document.querySelector('#tag').value = '';
             }
         }
     });
@@ -43,27 +47,23 @@ function tagListener() {
 function tagRender() {
     var tagInput = '';
     for (var i = 0; i < tagArr.length; i++) {
-        tagInput += `<li data-index="${i}" class='tagItem ${tagArr[i].className}'>${tagArr[i].value} </li>`;
-        document.querySelector('#showTag').innerHTML = tagInput;
+        tagInput += `<li data-index="${i}" class='items ${tagArr[i].className}'>${tagArr[i].value} </li>`;
     }
+    document.querySelector('#showTag').innerHTML = tagInput;
 };
 
 function hobbyRender() {
-    hobbyArr.push(document.querySelector('#hobby').value.trim());
     var hobbyInput = '';
     for (var i = 0; i < hobbyArr.length; i++) {
-        hobbyInput += `<li class='${hobbyArr[i].className}'>${hobbyArr[i]} </li>`;
-        document.querySelector('#showHobby').innerHTML = hobbyInput;
+        hobbyInput += `<li data-index="${i}" class='items ${hobbyArr[i].className}'>${hobbyArr[i].value} </li>`;
     }
+    document.querySelector('#showHobby').innerHTML = hobbyInput;
 }
 
-
-function inputConfirm() {
-    var tagInput = document.querySelector('#tag').value.trim();
-    var hobbyInput = document.querySelector('#hobby').value.trim();
-    var result = /^[A-Za-z|\d|\u4E00-\u9FA5]*[A-Za-z|\d|\u4E00-\u9FA5]*$/.test(tagInput);
+function confirm(input, arr) {
+    var result = /^[A-Za-z|\d|\u4E00-\u9FA5]*[A-Za-z|\d|\u4E00-\u9FA5]*$/.test(input);
     console.log(result);
-    if (tagInput == '') {
+    if (input == '') {
         alert('请输入标签！');
         return false;
     } else {
@@ -71,8 +71,10 @@ function inputConfirm() {
             alert('不合法输入！')
             return false;
         } else {
-            for (var i = 0; i < tagArr.length; i++) {
-                if (tagInput == tagArr[i].value) {
+            for (var i = 0; i < arr.length; i++) {
+                if (input == arr[i].value) {
+                    alert('存在相同标签！');
+                    input = '';
                     return false;
                 }
             }
@@ -80,61 +82,139 @@ function inputConfirm() {
         return true;
     }
 };
+function hobbyConfirm() {
+    var hobbyInput = document.querySelector('#hobby').value.trim();
+    if (document.querySelector('#hobby').value == '') {
+        alert('请输入兴趣爱好！')
+        return false;
+    } else {
+        var result = /^[A-Za-z|\d|\u4E00-\u9FA5]*([,，、\n\s]*?)[A-Za-z|\d|\u4E00-\u9FA5]*$/.test(hobbyInput);
+        if (result == false) {
+            alert('不合法输入！')
+            return false;
+        } else {
+            var hobbyValue = hobbyInput.split(/[,，、\n\s]/);
+            for (var i = 0; i < hobbyArr.length; i++) {
+                for (var j = 0; j < hobbyArr.length; j++) {
+                    if (hobbyValue[i] == hobbyArr[j].value) {
+                        hobbyArr.splice(j, 1);
+                    }
+                }
+            };
+            if (hobbyArr.length > 9) {
+                hobbyArr.shift();
+            };
+            for (var i = 0; i < hobbyValue.length; i++) {
+                hobbyArr.push({
+                    className: "normal",
+                    value: hobbyValue[i]
+                })
+            }
+        }
+        return true;
+    }
+};
 
-var item = document.querySelector('#showTag');
-item.addEventListener("mouseenter", enter, false);
-item.addEventListener("mouseleave", leave, false);
+var tagItem = document.querySelector('#showTag');
+tagItem.addEventListener("mouseover", enterT, false);
+tagItem.addEventListener("mouseleave", leaveT, false);
 
-function enter(event) {
-    var list = document.querySelectorAll(".tagItem");
+var hobbyItem = document.querySelector('#showHobby');
+hobbyItem.addEventListener("mouseover", enterH, false);
+hobbyItem.addEventListener("mouseleave", leaveH, false);
+
+function enterT(event) {
+    var list = document.querySelectorAll(".items");
     for (var i = 0; i < list.length; i++) {
         list[i].addEventListener("mouseenter", function(ee) {
-            enterRender(ee.target.dataset.index);
+            enterRenderT(ee.target.dataset.index);
         });
         list[i].addEventListener("click", function(event) {
-            showTag.removeChild(list[event.target.dataset.index]);
+            tagArr.splice(event.target.dataset.index, 1);
+            tagRender();
             return;
         });
-        leave();
+        leaveT();
     }
-}
+};
 
-// function deleteTag() {
-//     var list = document.querySelectorAll(".tagItem");
-//     for (var i = 0; i < list.length; i++) {
-//
-//         })
-//     }
-// };
-
-function leave() {
-    var list = document.querySelectorAll(".tagItem");
+function leaveT() {
+    var list = document.querySelectorAll(".items");
     for (var i = 0; i < list.length; i++) {
         list[i].addEventListener("mouseleave", function(ee) {
-            leaveRender(ee.target.dataset.index);
+            leaveRenderT(ee.target.dataset.index);
         })
     }
 };
 
-function enterRender(i) {
+function enterRenderT(i) {
     if (tagArr[i].flag) {
         return;
     }
     tagArr[i].className = `${tagArr[i].className} delete`;
-    tagArr[i].value = `删除${tagArr[i].value}`;
+    tagArr[i].value = `删除 ${tagArr[i].value}`;
     tagArr[i].flag = true;
     console.log(tagArr[i].value);
     tagRender();
 };
 
-function leaveRender(i) {
-    if (!tagArr[i].flag) {
+function leaveRenderT(i) {
+    if (tagArr[i]) {
+        if (!tagArr[i].flag) {
+            return;
+        }
+        tagArr[i].className = 'normal';
+        tagArr[i].value = `${tagArr[i].value}`.substring(3);
+        tagArr[i].flag = false;
+        tagRender();
+    }
+};
+
+function enterH(event) {
+    var list = document.querySelectorAll(".items");
+    for (var i = 0; i < list.length; i++) {
+        list[i].addEventListener("mouseenter", function(ee) {
+            enterRenderH(ee.target.dataset.index);
+        });
+        list[i].addEventListener("click", function(event) {
+            hobbyArr.splice(event.target.dataset.index, 1);
+            console.log(event.target.dataset.index);
+            hobbyRender();
+            return;
+        });
+        leaveH();
+    }
+};
+
+function leaveH() {
+    var list = document.querySelectorAll(".items");
+    for (var i = 0; i < list.length; i++) {
+        list[i].addEventListener("mouseleave", function(ee) {
+            leaveRenderH(ee.target.dataset.index);
+        })
+    }
+};
+
+function enterRenderH(i) {
+    if (hobbyArr[i].flag) {
         return;
     }
-    tagArr[i].className = 'normal';
-    tagArr[i].value = `${tagArr[i].value}`.substring(2);
-    tagArr[i].flag = false;
-    tagRender();
+    hobbyArr[i].className = `${hobbyArr[i].className} delete`;
+    hobbyArr[i].value = `删除 ${hobbyArr[i].value}`;
+    hobbyArr[i].flag = true;
+    hobbyRender();
+};
+
+function leaveRenderH(i) {
+    if (hobbyArr[i]) {
+        if (!hobbyArr[i].flag) {
+            return;
+        }
+        hobbyArr[i].className = 'normal';
+        hobbyArr[i].value = `${hobbyArr[i].value}`.substring(2);
+        hobbyArr[i].flag = false;
+        hobbyRender();
+    }
 };
 
 function init() {

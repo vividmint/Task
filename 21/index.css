@@ -2,25 +2,57 @@
     font-family: "Microsoft YaHei", sans-serif;
     box-sizing: border-box;
 }
-#tag{
-  width: 250px;
-  margin: 0 10px;
-  padding: 5px 0 5px 10px;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-li{
-  display: inline-block;
-  padding: 5px;
-  background-color: #CCBBFF;
+fieldset {
+    width: 40%;
+    margin: 20px 0;
+    border:#AAAAAA solid 3px;
+    border-radius: 5px;
+
+}
+#tag {
+    width: 100%;
+    padding: 5px 0 5px 5px;
+    margin: 5px 0 10px 0;
+}
+
+#hobby {
+    width: 100%;
+    margin:5px 0 10px 0;
+    padding: 5px 0 5px 5px;
+
+}
+li {
+    display: inline-block;
+    padding: 5px;
+    background-color: #CCBBFF;
+    color: white;
+    border-radius: 3px;
+    margin: 10px;
+}
+.delete {
+    background-color: #33acfe;
+}
+.items {
+    cursor: pointer;
+}
+input,textarea{
+  border-radius: 3px;
+  border-style: none;
+  border: #CCBBFF solid 2px;
+}
+button{
+  border-style: none;
+  background-color: #33acfe;
+  padding: 10px 20px;
   color: white;
   border-radius: 3px;
-  margin: 10px;
-}
-#showHobby{
-  /*cursor: pointer;*/
-}
-.delete{
-  background-color: #33acfe;
-}
-.tagItem{
-  cursor: pointer;
+  width: 100%;
+  font-family: Microsoft YaHei;
+  font-size: 16px;
+  margin-bottom: 10px;
 }

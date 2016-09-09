@@ -8,16 +8,19 @@
 </head>
 
 <body>
-    <span>Tags:</span><input type="text" id="tag" placeholder="输入标签，以回车、逗号、空格确认">
-    <!-- <button type="button" id="button">提交</button> -->
-    <div id="showTag"></div>
-    <div class="" style="margin-top:50px">
-        <textarea id="hobby" rows="8" cols="40"></textarea>
+    <fieldset>
+        <legend class="">Tags:</legend>
+        <input type="text" id="tag" placeholder="请输入标签，以回车、逗号、空格确认">
+        <div id="showTag"></div>
+    </fieldset>
+    <fieldset>
+        <legend class="">Favorite:</legend>
+        <textarea id="hobby" rows="8" cols="40" placeholder="请输入兴趣爱好，可用回车、逗号（全角半角均可）、顿号、空格（全角半角、Tab等均可）等符号作为间隔。"></textarea>
         <div class="">
             <button type="button" id="submit">确认兴趣爱好</button>
             <div id="showHobby"></div>
         </div>
-    </div>
+    </fieldset>
     <script src="./index.js" charset="utf-8"></script>
 </body>
 
