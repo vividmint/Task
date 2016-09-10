@@ -26,7 +26,7 @@ function hobbyListener() {
 function tagListener() {
     document.querySelector('#tag').addEventListener('keypress', function(e) {
         if (e.keyCode == 13 || e.keyCode == 44 || e.keyCode == 32) {
-            if (confirm(document.querySelector('#tag').value.trim(), tagArr) == false) {
+            if (tagConfirm(document.querySelector('#tag').value.trim(), tagArr) == false) {
                 return;
             } else {
                 var tagInput = document.querySelector('#tag').value.trim();
@@ -60,7 +60,7 @@ function hobbyRender() {
     document.querySelector('#showHobby').innerHTML = hobbyInput;
 }
 
-function confirm(input, arr) {
+function tagConfirm(input, arr) {
     var result = /^[A-Za-z|\d|\u4E00-\u9FA5]*[A-Za-z|\d|\u4E00-\u9FA5]*$/.test(input);
     console.log(result);
     if (input == '') {
