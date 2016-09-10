@@ -3,81 +3,134 @@
     width: 100%;
     font-family: Microsoft YaHei;
 }
+
 header {
     display: flex;
     justify-content: space-between;
     height: 50px;
     color: #34495e;
 }
+
 .header-icon {
     color: #27ae60;
     padding: 0 5px 0 0;
     font-size: 26px;
 }
+
 .header-titles {
     line-height: 40px;
     font-size: 24px;
     padding-left: 40px;
 }
+
 .header-columns {
     display: flex;
-    flex-direction: row;
-    line-height: 40px;
     font-size: 16px;
     justify-content: flex-end;
     text-align: center;
 }
+
 .header-column {
     display: inline;
     padding: 0 10px 0 10px;
     text-decoration: none;
     color: #34495e;
-    width: 70px;
 }
-.header-column:hover {
-    color: #27ae60;
-    border-bottom: 4px solid #27ae60;
-    transition: 0.1s;
+
+li {
+    list-style: none;
+    width: 90px;
 }
-.signin {
+
+li a {
     text-decoration: none;
+    display: inline-block;
+}
+
+li:last-child:after {
+    content: ' ';
+    display: block;
+    height: 4px;
+    width: 90px;
+    margin-top: 9px;
+    background-color: #27ae60;
+    -webkit-transition: margin-left 0.3s;
+    -moz-transition: margin-left 0.3s;
+    -o-transition: margin-left 0.3s;
+    -ms-transition: margin-left 0.3s;
+    transition: margin-left 0.3s;
+}
+
+li:nth-child(1):hover~li:last-child:after {
+    margin-left: -450px;
+}
+
+li:nth-child(2):hover~li:last-child:after {
+    margin-left: -360px;
+}
+
+li:nth-child(3):hover~li:last-child:after {
+    margin-left: -270px;
+}
+
+li:nth-child(4):hover~li:last-child:after {
+    margin-left: -180px;
+}
+
+li:nth-child(5):hover~li:last-child:after {
+    margin-left: -90px;
+}
+
+li:last-child:hover:after {
+    margin-left: 0;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.signin {
     color: #27ae60;
     padding: 0px 0px 0 25px;
-    margin-right: 30px;
-    width: 70px;
+    width: 100px;
 }
-.signin:hover {
-    color: #27ae60;
-    border-bottom: 4px solid #27ae60;
-    transition: 0.1s;
-    position: relative;
-}
+
 .fa-user {
     color: #27ae60;
     position: absolute;
     font-size: 22px;
-    margin: 9px 10px 0 -25px;
+    margin: 1px 10px 0 -25px;
 }
+
 .a {
     position: relative;
 }
+
 .a img {
     width: 100%;
 }
+
 .a-text {
     position: absolute;
     left: 70px;
     top: 140px;
     color: white;
 }
+
 .a-title {
     font-size: 60px;
 }
+
 .a-detail {
     font-size: 20px;
     line-height: 32px;
     padding: 5px 0 70px 5px;
 }
+
 .a-button {
     background-color: rgba(39, 174, 96, 0.8);
     padding: 13px 120px;
@@ -86,13 +139,16 @@ header {
     color: white;
     border-radius: 2px;
 }
+
 .b {
     display: flex;
 }
+
 .b-details {
     display: flex;
     flex-direction: column;
 }
+
 .b-icon {
     height: 130px;
     width: 100%;
@@ -103,6 +159,7 @@ header {
     color: #27ae60;
     opacity: 0.8;
 }
+
 .b-detail {
     display: flex;
     justify-content: center;
@@ -115,6 +172,7 @@ header {
     color: #676767;
     line-height: 25px;
 }
+
 .b-detail-last {
     display: flex;
     justify-content: center;
@@ -128,6 +186,7 @@ header {
     line-height: 25px;
     border-right: hidden;
 }
+
 .c {
     background-color: #F5FFFA;
     height: 350px;
@@ -138,16 +197,19 @@ header {
     align-items: center;
     flex-direction: column;
 }
+
 .c-icon {
     font-size: 70px;
     color: #27ae60;
     opacity: 0.8;
     padding: 0 0 30px 0;
 }
+
 .c-title {
     font-size: 34px;
     color: #676767;
 }
+
 .d {
     height: 300px;
     background-color: #EEFFBB;
@@ -158,10 +220,12 @@ header {
     color: #676767;
     position: relative;
 }
+
 .d-title {
     font-size: 22px;
     padding: 0 0 30px 0;
 }
+
 .d-title::after {
     content: '—';
     position: absolute;
@@ -170,6 +234,7 @@ header {
     top: 30%;
     color: #27ae60;
 }
+
 .d-detail {
     display: flex;
     flex-direction: column;
@@ -178,6 +243,7 @@ header {
     font-size: 14px;
     padding: 10px 0 25px 0;
 }
+
 select {
     width: 200px;
     height: 40px;
@@ -191,29 +257,35 @@ select {
     -moz-appearance: none;
     -webkit-appearance: none;
 }
+
 .fa-envelope {
     font-size: 20px;
     color: #27ae60;
 }
+
 #envelope1 {
     position: absolute;
     left: 378px;
     top: 197px;
 }
+
 #envelope2 {
     position: absolute;
     left: 602px;
     top: 197px;
 }
+
 #envelope3 {
     position: absolute;
     left: 826px;
     top: 197px;
 }
+
 select:focus {
     outline: none;
     border: 1px solid rgb(39, 174, 96);
 }
+
 .d-button {
     border-style: none;
     padding: 8px 70px 10px 95px;
@@ -224,6 +296,7 @@ select:focus {
     font-family: Microsoft YaHei;
     color: white;
 }
+
 .e {
     height: 570px;
     background-color: #FFF5EE;
@@ -231,9 +304,11 @@ select:focus {
     flex-direction: row;
     justify-content: center;
 }
+
 .e-part {
     padding: 100px 30px 50px 30px;
 }
+
 .e-pic img {
     height: 300px;
     width: 160px;
@@ -241,15 +316,18 @@ select:focus {
     padding: 10px;
     background-color: white;
 }
+
 .e-part-two {
     padding: 100px 30px 50px 30px;
 }
+
 .e-city {
     font-size: 18px;
     color: #676767;
     padding: 10px 0 10px 0;
     text-align: center;
 }
+
 .e-city-sz {
     font-size: 22px;
     color: #676767;
@@ -257,23 +335,28 @@ select:focus {
     text-align: justify;
     text-align-last: justify;
 }
+
 .e-introduction {
     font-size: 16px;
     color: #AAAAAA;
     padding: 0px 0 10px 0;
     text-align: center;
 }
+
 .f-left img {
     height: 550px;
     width: 892px;
 }
+
 .f {
     display: flex;
     flex-direction: row;
 }
+
 .f-left {
     display: flex;
 }
+
 .triangle1 {
     border: 18px solid transparent;
     border-right: 24px solid transparent;
@@ -282,6 +365,7 @@ select:focus {
     border-right-color: white;
     margin: 266px 0px 0px -42px;
 }
+
 .share {
     display: flex;
     flex-direction: column;
@@ -291,36 +375,44 @@ select:focus {
     display: none;
     margin-top: 100px;
 }
+
 input {
     padding: 0;
 }
+
 .f-right {
     position: relative;
 }
+
 .f-right1 {
     display: flex;
 }
+
 .f-right-title {
     padding: 0 0 20px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
+
 .f-title-name {
     font-size: 20px;
     color: #34495e;
 }
+
 .f-title-number {
     font-size: 20px;
     color: #27ae60;
     margin-left: 8px;
 }
+
 .f-right-detail {
     font-size: 14px;
     margin: 5px 65px 45px 65px;
     line-height: 30px;
     color: #676767;
 }
+
 .f-button {
     border-style: none;
     background-color: white;
@@ -329,12 +421,15 @@ input {
     padding: 8px 35px 8px 35px;
     font-family: Microsoft YaHei;
 }
+
 .share-c {
     bottom: 170px;
 }
+
 .share-c:hover {
     background-color: #6C5C5C;
 }
+
 .circle1 {
     width: 12px;
     height: 12px;
@@ -344,6 +439,7 @@ input {
     margin: 0 5px 0 182px;
     position: absolute;
 }
+
 .circle2 {
     width: 12px;
     height: 12px;
@@ -352,6 +448,7 @@ input {
     margin: 0 0px 0 214px;
     position: absolute;
 }
+
 .circle3 {
     width: 12px;
     height: 12px;
@@ -360,22 +457,28 @@ input {
     position: absolute;
     margin: 0 0px 0 246px;
 }
+
 .circle2:hover~ .f-right2 {
     display: flex;
 }
+
 .circle2:hover~ .f-right1 {
     display: none;
 }
+
 .circle3:hover~ .f-right1 {
     display: none;
 }
+
 .circle3:hover~ .f-right3 {
     display: flex;
 }
+
 .g {
     display: flex;
     height: 567px;
 }
+
 .g-part {
     flex: 1;
     display: flex;
@@ -386,6 +489,7 @@ input {
     position: relative;
     min-width: 440px;
 }
+
 .g-part::after {
     content: '——';
     position: absolute;
@@ -395,6 +499,7 @@ input {
     color: #27ae60;
     font-weight: bolder;
 }
+
 .g-part1 {
     flex: 1;
     display: flex;
@@ -406,9 +511,11 @@ input {
     position: relative;
     min-width: 440px;
 }
+
 .g-part-triangle {
     position: relative;
 }
+
 .triangle2 {
     position: absolute;
     border: 20px solid transparent;
@@ -418,6 +525,7 @@ input {
     border-left-color: white;
     margin: 0px 0px 0px 300px;
 }
+
 .g-part1::after {
     content: '——';
     position: absolute;
@@ -427,14 +535,17 @@ input {
     color: #27ae60;
     font-weight: bolder;
 }
+
 .g-part-title {
     font-size: 20px;
     padding: 5px 0 5px 0;
 }
+
 .g-part-title1 {
     font-size: 20px;
     padding: 5px 0 5px 0;
 }
+
 .g-button {
     border-style: none;
     font-size: 18px;
@@ -445,6 +556,7 @@ input {
     margin: 40px 0 40px 0;
     color: #676767;
 }
+
 .g-button1 {
     border-style: none;
     font-size: 18px;
@@ -454,6 +566,7 @@ input {
     padding: 10px 45px 10px 45px;
     margin: 40px 0 40px 0;
 }
+
 .h {
     height: 250px;
     display: flex;
@@ -461,6 +574,7 @@ input {
     align-items: center;
     justify-content: center;
 }
+
 .h-title {
     font-size: 22px;
     color: #34495e;
@@ -469,6 +583,7 @@ input {
     justify-content: center;
     flex-direction: column;
 }
+
 .h-title::after {
     content: '—';
     display: flex;
@@ -478,12 +593,14 @@ input {
     font-weight: bolder;
     margin: -5px 0 6px 0;
 }
+
 .h-detail {
     font-size: 14px;
     color: #676767;
     width: 450px;
     text-align: center;
 }
+
 .i {
     display: flex;
     flex-direction: row;
@@ -491,6 +608,7 @@ input {
     color: #34495e;
     min-width: 1320px;
 }
+
 .i-lefts {
     flex: 1;
     padding: 0px 40px 10px 120px;
@@ -499,16 +617,19 @@ input {
     flex-direction: column;
     justify-content: flex-start;
 }
+
 .i-left {
     position: relative;
     line-height: 20px;
     margin: 0 0 50px 0;
 }
+
 .i-left-title {
     font-size: 16px;
     font-weight: bolder;
     padding: 0 0 20px 0;
 }
+
 .i-left-detail {
     font-size: 14px;
     padding: 0 0 20px 0;
@@ -519,6 +640,7 @@ input {
     height: 20px;
     color: #676767;
 }
+
 .more-button {
     border-style: none;
     background-color: white;
@@ -529,6 +651,7 @@ input {
     top: 85px;
     right: 0;
 }
+
 .more-button3 {
     border-style: none;
     background-color: white;
@@ -539,31 +662,37 @@ input {
     top: 25px;
     right: 0;
 }
+
 .fa-angle-down {
     font-size: 16px;
     margin: 0px 5px 0 0;
 }
+
 .i-right {
     flex: 2;
     padding: 0 120px 25px 40px;
     justify-content: center;
     align-items: center;
 }
+
 .i-upper {
     display: flex;
     flex-direction: row;
 }
+
 .upper-left {
     display: flex;
     flex-direction: column;
     margin-right: 20px;
     flex: 1;
 }
+
 .upper-right {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
+
 .i-input {
     height: 40px;
     background-color: #ecf0f1;
@@ -575,10 +704,12 @@ input {
     font-size: 14px;
     color: #676767;
 }
+
 .i-input:focus {
     outline: none;
     border: 1px solid rgb(39, 174, 96);
 }
+
 textarea {
     width: 650px;
     height: 130px;
@@ -591,10 +722,12 @@ textarea {
     font-size: 14px;
     color: #676767;
 }
+
 textarea:focus {
     outline: none;
     border: 1px solid rgb(39, 174, 96);
 }
+
 .i-button {
     width: 100%;
     border-style: none;
@@ -607,6 +740,7 @@ textarea:focus {
     font-family: Microsoft YaHei;
     font-size: 18px;
 }
+
 .j {
     display: flex;
     flex-direction: column;
@@ -616,17 +750,20 @@ textarea:focus {
     background-color: #EEFFBB;
     margin-top: 80px;
 }
+
 .j-title {
     font-size: 20px;
     margin-bottom: 5px;
     color: #34495e;
 }
+
 .j-detail {
     font-size: 14px;
     width: 40%;
     text-align: center;
     color: #676767;
 }
+
 .email {
     display: flex;
     align-items: center;
@@ -637,6 +774,7 @@ textarea:focus {
     /*border: 1px solid #AAAAAA;*/
     padding: 25px 0 10px 0;
 }
+
 .j-email {
     flex: 6;
     background-color: white;
@@ -648,9 +786,11 @@ textarea:focus {
     font-size: 14px;
     padding: 0 0 0 12px;
 }
+
 .j-email:focus {
     outline: none;
 }
+
 .j-button {
     flex: 1;
     background-color: #27ae60;
@@ -662,16 +802,19 @@ textarea:focus {
     font-size: 16px;
     font-family: Microsoft YaHei;
 }
+
 .j-icons {
     display: flex;
     align-items: center;
     margin: 10px 0px 0px 0px;
 }
+
 .j-icon {
     font-size: 34px;
     color: #27ae60;
     margin: 0 15px 0 15px;
 }
+
 footer {
     background-color: #FFF5EE;
     display: flex;
@@ -682,9 +825,11 @@ footer {
     color: #676767;
     font-family: Microsoft YaHei;
 }
+
 .footer-name {
     padding: 10px 30px 10px 30px;
 }
+
 .footer-a {
     text-decoration: none;
     padding: 15px 30px 15px 30px;
